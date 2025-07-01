@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZanXtzyZ Official - Premium Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8A2BE2;
+            --secondary: #00CED1;
+            --accent: #FF00FF;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #f0f0f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styling */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: rgba(20, 20, 35, 0.8);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 206, 209, 0.3);
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(138,43,226,0.1) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+        }
+        
+        .profile-container {
+            position: relative;
+            margin-right: 20px;
+        }
+        
+        .profile {
+            width: 120px;
+            height: 120px;
+            border-radius: 18px;
+            border: 3px solid var(--secondary);
+            object-fit: cover;
+            box-shadow: 0 0 25px rgba(0, 206, 209, 0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .profile:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 206, 209, 0.9);
+        }
+        
+        .header-content {
+            flex-grow: 1;
+        }
+        
+        .store-title {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 15px rgba(0, 206, 209, 0.3);
+        }
+        
+        .audio-control {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 206, 209, 0.15);
+            border: 2px solid var(--secondary);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            max-width: 250px;
+            color: var(--light);
+            margin-top: 15px;
+        }
+        
+        .audio-control:hover {
+            background: rgba(0, 206, 209, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 206, 209, 0.5);
+        }
+        
+        .audio-control i {
+            margin-right: 12px;
+            color: var(--secondary);
+            font-size: 24px;
+        }
+        
+        /* Bot WhatsApp Section */
+        .wa-section {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(20, 20, 35, 0.8) 100%);
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            box-shadow: 0 10px 35px rgba(37, 211, 102, 0.25);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .wa-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #25D366, #128C7E);
+        }
+        
+        .wa-profile {
+            width: 200px;
+            height: 200px;
+            border-radius: 25px;
+            border: 4px solid var(--accent);
+            object-fit: cover;
+            box-shadow: 0 0 40px rgba(255, 0, 255, 0.6);
+            margin: 0 auto 25px;
+            display: block;
+            transition: all 0.4s ease;
+        }
+        
+        .wa-profile:hover {
+            transform: rotate(3deg) scale(1.03);
+            box-shadow: 0 0 50px rgba(255, 0, 255, 0.8);
+        }
+        
+        .wa-main-title {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #25D366, #00CED1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+        
+        .wa-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .wa-card {
+            background: rgba(10, 10, 20, 0.6);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .wa-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border-color: rgba(37, 211, 102, 0.5);
+        }
+        
+        .wa-card h3 {
+            font-size: 24px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .wa-card h3 i {
+            margin-right: 12px;
+            color: var(--accent);
+            font-size: 28px;
+        }
+        
+        .wa-card p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #e0e0e0;
+            text-align: center;
+        }
+        
+        /* Product Highlight */
+        .highlight {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(20, 20, 35, 0.7) 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.15);
+            position: relative;
+        }
+        
+        .highlight h2 {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(90deg, gold, #ffcc00, #ffaa00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            text-shadow: 0 3px 10px rgba(255, 215, 0, 0.4);
+            letter-spacing: 1px;
+        }
+        
+        .highlight::after {
+            content: "✨";
+            position: absolute;
+            top: -25px;
+            right: 30px;
+            font-size: 50px;
+            animation: pulse 2s infinite;
+        }
+        
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin: 50px 0;
+        }
+        
+        .product-card {
+            background: rgba(20, 20, 35, 0.8);
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 40px rgba(138, 43, 226, 0.15);
+            position: relative;
+        }
+        
+        .product-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(138, 43, 226, 0.4);
+            border-color: rgba(138, 43, 226, 0.7);
+        }
+        
+        .product-content {
+            padding: 30px;
+        }
+        
+        .product-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-title i {
+            margin-right: 12px;
+            color: var(--accent);
+            font-size: 28px;
+        }
+        
+        .price {
+            font-size: 28px;
+            font-weight: 800;
+            color: gold;
+            margin: 20px 0;
+            text-shadow: 0 3px 8px rgba(255, 215, 0, 0.4);
+            text-align: center;
+        }
+        
+        .buy-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--primary), #6a0dad);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .buy-btn::after {
+            content: "»";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            font-size: 24px;
+        }
+        
+        .buy-btn:hover {
+            background: linear-gradient(135deg, #9b4de3, #7a1fbf);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(138, 43, 226, 0.7);
+        }
+        
+        .buy-btn:hover::after {
+            opacity: 1;
+            right: 15px;
+        }
+        
+        /* Developer Info */
+        .developer-section {
+            background: linear-gradient(135deg, rgba(0, 206, 209, 0.1) 0%, rgba(20, 20, 35, 0.8) 100%);
+            border-radius: 25px;
+            padding: 40px;
+            margin-top: 60px;
+            border: 1px solid rgba(0, 206, 209, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 206, 209, 0.25);
+        }
+        
+        .dev-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 3px 10px rgba(0, 206, 209, 0.4);
+            letter-spacing: 1px;
+        }
+        
+        .dev-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+        
+        .dev-link {
+            display: flex;
+            align-items: center;
+            background: rgba(10, 10, 25, 0.7);
+            border-radius: 20px;
+            padding: 20px 30px;
+            text-decoration: none;
+            color: var(--light);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dev-link:hover {
+            transform: translateY(-8px);
+            background: rgba(30, 30, 50, 0.9);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            border-color: var(--secondary);
+        }
+        
+        .dev-link i {
+            font-size: 28px;
+            margin-right: 20px;
+            width: 50px;
+            text-align: center;
+        }
+        
+        .wa-link i { color: #25D366; }
+        .channel-link i { color: #7289DA; }
+        .yt-link i { color: #FF0000; }
+        .email-link i { color: #EA4335; }
+        
+        .link-text {
+            flex-grow: 1;
+        }
+        
+        .link-label {
+            font-size: 16px;
+            color: #aaa;
+            margin-bottom: 8px;
+        }
+        
+        .link-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            font-size: 18px;
+            color: #aaa;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-text {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+            text-shadow: 0 3px 10px rgba(138, 43, 226, 0.3);
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Photo Glow Effect */
+        @keyframes glow {
+            0% { box-shadow: 0 0 25px rgba(0, 206, 209, 0.7); }
+            50% { box-shadow: 0 0 40px rgba(0, 206, 209, 0.9), 0 0 60px rgba(255, 0, 255, 0.6); }
+            100% { box-shadow: 0 0 25px rgba(0, 206, 209, 0.7); }
+        }
+        
+        .glow-effect {
+            animation: glow 3s infinite;
+        }
+        
+        /* Music Wave Animation */
+        .music-wave {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        .wave-bar {
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background: var(--secondary);
+            margin: 0 2px;
+            border-radius: 10px;
+            animation: wave 1.5s infinite ease-in-out;
+        }
+        
+        .wave-bar:nth-child(2) { animation-delay: 0.2s; }
+        .wave-bar:nth-child(3) { animation-delay: 0.4s; }
+        .wave-bar:nth-child(4) { animation-delay: 0.6s; }
+        .wave-bar:nth-child(5) { animation-delay: 0.8s; }
+        
+        @keyframes wave {
+            0%, 100% { transform: scaleY(0.3); }
+            50% { transform: scaleY(1.5); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-container {
+                margin-right: 0;
+                margin-bottom: 25px;
+            }
+            
+            .profile {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .audio-control {
+                margin: 20px auto 0;
+                max-width: 100%;
+            }
+            
+            .wa-profile {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .store-title, .wa-main-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="profile-container">
+                <img src="https://files.catbox.moe/pq5kkh.jpg" alt="ZanXtzyZ" class="profile glow-effect" id="profile-pic">
+            </div>
+            <div class="header-content">
+                <h1 class="store-title">ZanXtzyZ Official - Store Site</h1>
+                <button class="audio-control" id="audio-btn">
+                    <i class="fas fa-music"></i> Putar Sound Premium
+                </button>
+            </div>
+        </div>
+        
+        <!-- WhatsApp Bot Section -->
+        <div class="wa-section">
+            <img src="https://files.catbox.moe/pq5kkh.jpg" alt="ZanXtzyZ" class="wa-profile glow-effect">
+            <h2 class="wa-main-title">Bot WhatsApp Premium</h2>
+            
+            <div class="wa-content">
+                <div class="wa-card">
+                    <h3><i class="fas fa-robot"></i> Apa itu Bot WhatsApp?</h3>
+                    <p>Program otomatis yang mengirim, menerima, dan membalas pesan di WhatsApp. Solusi efisien untuk komunikasi bisnis dan personal dengan fitur canggih.</p>
+                </div>
+                
+                <div class="wa-card">
+                    <h3><i class="fas fa-tachometer-alt"></i> Panel Bot WA</h3>
+                    <p>Aplikasi web untuk mengelola bot WhatsApp dengan kontrol penuh: kirim pesan otomatis, manajemen kontak, dan laporan aktivitas real-time.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Product Highlight -->
+        <div class="highlight">
+            <h2>🔥 Script Bug Berkualitas Premium!</h2>
+        </div>
+        
+        <!-- Products Grid -->
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-content">
+                    <h3 class="product-title"><i class="fas fa-bolt"></i> Script ZanXtzyZ Alpha Crash</h3>
+                    <div class="price">Rp 10.000</div>
+                    <button class="buy-btn" data-product="Script ZanXtzyZ Alpha Crash">BELI SEKARANG</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-content">
+                    <h3 class="product-title"><i class="fas fa-crown"></i> Reseller Script</h3>
+                    <div class="price">Rp 35.000</div>
+                    <button class="buy-btn" data-product="Reseller Script">BELI SEKARANG</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-content">
+                    <h3 class="product-title"><i class="fas fa-handshake"></i> Partner Script</h3>
+                    <div class="price">Rp 70.000</div>
+                    <button class="buy-btn" data-product="Partner Script">BELI SEKARANG</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-content">
+                    <h3 class="product-title"><i class="fas fa-star"></i> Owner Script</h3>
+                    <div class="price">Rp 120.000</div>
+                    <button class="buy-btn" data-product="Owner Script">BELI SEKARANG</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Developer Information -->
+        <div class="developer-section">
+            <h2 class="dev-title">Kontak Developer</h2>
+            
+            <div class="dev-links">
+                <a href="https://wa.me/6283869487664" class="dev-link wa-link">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="link-text">
+                        <div class="link-label">WhatsApp Developer</div>
+                        <div class="link-value">6283869487664</div>
+                    </div>
+                </a>
+                
+                <a href="https://whatsapp.com/channel/0029Vb3wrn87YSd73TgtLs1x" class="dev-link channel-link">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="link-text">
+                        <div class="link-label">Saluran WhatsApp</div>
+                        <div class="link-value">ZanXtzyZ Channel</div>
+                    </div>
+                </a>
+                
+                <a href="https://youtube.com/@zanxtzydev?si=Fl9QB_n6XF3vj7v5" class="dev-link yt-link">
+                    <i class="fab fa-youtube"></i>
+                    <div class="link-text">
+                        <div class="link-label">YouTube Developer</div>
+                        <div class="link-value">@zanxtzydev</div>
+                    </div>
+                </a>
+                
+                <a href="mailto:fendrygamezz@gmail.com" class="dev-link email-link">
+                    <i class="fas fa-envelope"></i>
+                    <div class="link-text">
+                        <div class="link-label">Email Developer</div>
+                        <div class="link-value">fendrygamezz@gmail.com</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-text">ZanXtzyZ Official - Site Developer 2025</div>
+            <p>© 2025 Premium Digital Solutions. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Audio Functionality
+        const audioPlayer = new Audio('https://files.catbox.moe/cfk8n3.mp3');
+        let isPlaying = false;
+        
+        document.getElementById('audio-btn').addEventListener('click', function() {
+            if (isPlaying) {
+                audioPlayer.pause();
+                audioPlayer.currentTime = 0;
+                this.innerHTML = '<i class="fas fa-music"></i> Putar Sound Premium';
+                this.classList.remove('pulse');
+                isPlaying = false;
+            } else {
+                audioPlayer.play();
+                this.innerHTML = '<i class="fas fa-volume-up"></i> Sound Sedang Diputar... <div class="music-wave">'+
+                                 '<div class="wave-bar"></div><div class="wave-bar"></div>'+
+                                 '<div class="wave-bar"></div><div class="wave-bar"></div></div>';
+                this.classList.add('pulse');
+                isPlaying = true;
+            }
+        });
+
+        // Buy Button Functionality
+        document.querySelectorAll('.buy-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const productName = this.getAttribute('data-product');
+                const waMessage = `Halo Bang ZanXtzyZ Official, Saya Ingin Membeli ${productName}, Mohon Dibales Bang`;
+                const encodedMessage = encodeURIComponent(waMessage);
+                window.open(`https://wa.me/6283869487664?text=${encodedMessage}`, '_blank');
+            });
+        });
+
+        // Photo glow effect
+        const photos = document.querySelectorAll('.profile, .wa-profile');
+        photos.forEach(photo => {
+            photo.addEventListener('mouseenter', () => {
+                photo.classList.add('glow-effect');
+            });
+            photo.addEventListener('mouseleave', () => {
+                photo.classList.remove('glow-effect');
+            });
+        });
+        
+        // Stop music when leaving page
+        window.addEventListener('beforeunload', function() {
+            audioPlayer.pause();
+        });
+    </script>
+</body>
+</html>
